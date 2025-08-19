@@ -1,6 +1,6 @@
 import fastify from 'fastify'
 import fastifyCors from '@fastify/cors'
-import { feedbackRoutes } from './http/routes/feedback.js' // Corrigido para o seu padrão de nome
+import { feedbackRoutes } from './http/routes/feedback.js'
 import { pajamasRoutes } from './http/routes/pajamas.js'
 
 export const app = fastify()
