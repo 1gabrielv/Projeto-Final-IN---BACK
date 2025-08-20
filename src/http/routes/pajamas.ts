@@ -12,6 +12,7 @@ export async function pajamasRoutes(app: FastifyInstance) {
   app.get('/pajamas', getAllPajamas)
   app.get('/pajamas/:id', getPajamaById)
   app.patch('/pajamas/:id', updatePajama)
+  
   app.delete('/pajamas/:id', deletePajama)
 
   // Rota específica para atualizar o stock de um TAMANHO
