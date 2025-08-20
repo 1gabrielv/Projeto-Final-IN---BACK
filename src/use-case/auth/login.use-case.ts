@@ -5,24 +5,23 @@ import { InvalidCredentialsError } from '../erros/invalid_credentials_error.js'
 import bcrypt from 'bcryptjs'
 
 export async function loginUseCase(input: unknown): Promise<Pick<User, 'id' | 'username'>> {
-  const data = loginSchema.parse(input)
+  const { identifier, password } = loginSchema.parse(input)
 
-  // Accept login by email or username
-  const identifier = (data.email ?? data.username) as string | undefined
-  if (!identifier) throw new InvalidCredentialsError()
+  const isEmail = identifier.includes('@')
 
-  const user = await prisma.user.findFirst({
-    where: {
-      OR: [
-        { email: identifier },
-        { username: identifier },
-      ],
-    },
+  const user = await prisma.user.findUnique({
+    where: isEmail ? { email: identifier } : { username: identifier },
   })
-  if (!user) throw new InvalidCredentialsError()
 
-  const ok = await bcrypt.compare(data.password, user.password)
-  if (!ok) throw new InvalidCredentialsError()
+  if (!user) {
+    throw new InvalidCredentialsError()
+  }
+
+  const ok = await bcrypt.compare(password, user.password)
+
+  if (!ok) {
+    throw new InvalidCredentialsError()
+  }
 
   return { id: user.id, username: user.username }
 }
