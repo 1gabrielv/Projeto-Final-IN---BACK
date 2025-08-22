@@ -1,8 +1,8 @@
 import { z } from 'zod'
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaFeedbackRepository } from '../../../repositories/prisma/prisma_feedback_repository.js'
-import { DeleteFeedbackUseCase } from '../../../use-case/feedback/delete_feedback_use_case.js'
-import { ResourceNotFoundError } from '../../../use-case/erros/resource_not_found_error.js'
+import { PrismaFeedbackRepository } from '@/repositories/prisma/prisma_feedback_repository.js'
+import { DeleteFeedbackUseCase } from '@/use-case/feedback/delete_feedback_use_case.js'
+import { ResourceNotFoundError } from '@/use-case/erros/resource_not_found_error.js'
 
 export async function deleteFeedback(request: FastifyRequest, reply: FastifyReply) {
   const paramsSchema = z.object({ id: z.string().uuid() })

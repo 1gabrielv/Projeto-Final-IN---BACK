@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaFeedbackRepository } from '../../../repositories/prisma/prisma_feedback_repository.js'
-import { CreateFeedbackUseCase } from '../../../use-case/feedback/create_feedback_use_case.js'
+import { PrismaFeedbackRepository } from '@/repositories/prisma/prisma_feedback_repository.js'
+import { CreateFeedbackUseCase } from '@/use-case/feedback/create_feedback_use_case.js'
 
 export async function createFeedback(request: FastifyRequest, reply: FastifyReply) {
   const bodySchema = z.object({

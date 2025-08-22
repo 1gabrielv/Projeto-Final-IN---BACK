@@ -1,8 +1,8 @@
 import { z } from 'zod'
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaUserRepository } from '../../../repositories/prisma/prisma_user_repository.js'
-import { CreateUserUseCase } from '../../../use-case/user/create_user_use_case.js'
-import { UserAlreadyExistsError } from '../../../use-case/erros/user_already_exists_error.js'
+import { PrismaUserRepository } from '@/repositories/prisma/prisma_user_repository.js'
+import { CreateUserUseCase } from '@/use-case/user/create_user_use_case.js'
+import { UserAlreadyExistsError } from '@/use-case/erros/user_already_exists_error.js'
 
 export async function createUser(request: FastifyRequest, reply: FastifyReply) {
   const bodySchema = z.object({
@@ -25,7 +25,6 @@ export async function createUser(request: FastifyRequest, reply: FastifyReply) {
       password 
     })
 
-    // Remover a senha da resposta
     const { password: _, ...userWithoutPassword } = user
 
     return reply.status(201).send({ 

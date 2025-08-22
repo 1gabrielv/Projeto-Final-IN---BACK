@@ -7,7 +7,6 @@ import { updateStock } from '../controller/pajama/update_stock.js'
 import { deletePajama } from '../controller/pajama/delete_pajama.js'
 
 export async function pajamasRoutes(app: FastifyInstance) {
-  // CRUD Básico de Pijamas
   app.post('/pajamas', createPajama)
   app.get('/pajamas', getAllPajamas)
   app.get('/pajamas/:id', getPajamaById)
@@ -15,6 +14,5 @@ export async function pajamasRoutes(app: FastifyInstance) {
   
   app.delete('/pajamas/:id', deletePajama)
 
-  // Rota específica para atualizar o stock de um TAMANHO
   app.patch('/pajama-sizes/:id/stock', updateStock)
 } 

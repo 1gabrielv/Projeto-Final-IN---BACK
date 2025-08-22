@@ -1,5 +1,5 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
-import { updateSaleUseCase } from '../../../use-case/sale/update_sale.use-case.js'
+import { updateSaleUseCase } from '@/use-case/sale/update_sale.use-case.js'
 
 export async function updateSaleController(req: FastifyRequest, reply: FastifyReply) {
   try {

@@ -1,8 +1,8 @@
 import { z } from 'zod'
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaPajamasRepository } from '../../../repositories/prisma/prisma_pajama_repository.js'
-import { GetPajamaByIdUseCase } from '../../../use-case/pajama/get_pajama_by_id_use_case.js'
-import { ResourceNotFoundError } from '../../../use-case/erros/resource_not_found_error.js'
+import { PrismaPajamasRepository } from '@/repositories/prisma/prisma_pajama_repository.js'
+import { GetPajamaByIdUseCase } from '@/use-case/pajama/get_pajama_by_id_use_case.js'
+import { ResourceNotFoundError } from '@/use-case/erros/resource_not_found_error.js'
 
 export async function getPajamaById(request: FastifyRequest, reply: FastifyReply) {
   const paramsSchema = z.object({ id: z.string().uuid() })

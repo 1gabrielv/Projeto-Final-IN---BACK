@@ -1,4 +1,4 @@
-import prisma from '../../lib/prisma.js'
+import prisma from '@/lib/prisma.js'
 import type { PajamaSize } from '../../../generated/prisma/index.js'
 import type { PajamaSizeRepository } from '../pajama_size_repository.js'
 

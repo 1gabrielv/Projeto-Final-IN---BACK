@@ -1,5 +1,5 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
-import { getSaleByIdUseCase } from '../../../use-case/sale/get_sale_by_id.use-case.js'
+import { getSaleByIdUseCase } from '@/use-case/sale/get_sale_by_id.use-case.js'
 
 export async function getSaleByIdController(req: FastifyRequest, reply: FastifyReply) {
   const { id } = req.params as any

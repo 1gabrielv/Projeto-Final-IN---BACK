@@ -1,4 +1,4 @@
-import { app } from './app.js' // Importa a aplicação JÁ CONFIGURADA do app.ts
+import { app } from './app.js'
 import { env } from './env/index.js'
 
 app

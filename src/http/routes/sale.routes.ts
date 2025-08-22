@@ -6,11 +6,10 @@ import { updateSaleController } from '../controller/sale/update_sale.controller.
 import { deleteSaleController } from '../controller/sale/delete_sale.controller.js'
 
 export async function saleRoutes(app: FastifyInstance) {
-  app.addHook('onRequest', app.authenticate) // protege só /sales
 
-  app.post('/', createSaleController)
-  app.get('/', listSalesController)
-  app.get('/:id', getSaleByIdController)
-  app.put('/:id', updateSaleController)
-  app.delete('/:id', deleteSaleController)
+  app.post('/sales', createSaleController)
+  app.get('/sales', listSalesController)
+  app.get('/sales/:id', getSaleByIdController)
+  app.put('/sales/:id', updateSaleController)
+  app.delete('/sales/:id', deleteSaleController)
 }

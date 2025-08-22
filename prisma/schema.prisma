@@ -47,7 +47,7 @@ model Pajama {
   gender        String   @map("gender")
   favorite      Boolean  @default(false) @map("favorite")
   onSale        Boolean  @default(false) @map("on_sale")
-  salePercent   Float?   @map("sale_percent") // Opcional com '?'
+  salePercent   Float?   @map("sale_percent")
 
   sizes PajamaSize[]
   sales SalePajamas[]
@@ -58,7 +58,7 @@ model Pajama {
 model PajamaSize {
   id             String @id @default(uuid())
   stockQuantity  Int    @map("stock_quantity")
-  size           String @map("size") // Ex: "PP", "P", "M", etc.
+  size           String @map("size")
 
   pajama   Pajama @relation(fields: [pajamaId], references: [id], onDelete: Cascade)
   pajamaId String @map("pajama_id")
@@ -73,7 +73,7 @@ model Sale {
   price         Float    @map("price")
   paymentMethod String   @map("payment_method")
   installments  Int      @default(1) @map("installments")
-  cardNumber    String?  @map("card_number") // Opcional com '?'
+  cardNumber    String?  @map("card_number")
   createdAt     DateTime @default(now()) @map("created_at")
 
   address   Address @relation(fields: [addressId], references: [id])
@@ -84,7 +84,6 @@ model Sale {
   @@map("sales")
 }
 
-// Tabela de junção para a relação N:N entre Sale e Pajama
 model SalePajamas {
   quantity Int   @map("quantity")
   price    Float @map("price")
@@ -94,7 +93,7 @@ model SalePajamas {
   pajama   Pajama @relation(fields: [pajamaId], references: [id], onDelete: Cascade)
   pajamaId String @map("pajama_id")
 
-  @@id([saleId, pajamaId]) // Chave primária composta
+  @@id([saleId, pajamaId]) 
   @@map("sale_pajamas")
 }
 

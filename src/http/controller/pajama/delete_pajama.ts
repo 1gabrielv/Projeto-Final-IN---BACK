@@ -1,8 +1,8 @@
 import { z } from 'zod'
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaPajamasRepository } from '../../../repositories/prisma/prisma_pajama_repository.js'
-import { DeletePajamaUseCase } from '../../../use-case/pajama/delete_pajama_use_case.js'
-import { ResourceNotFoundError } from '../../../use-case/erros/resource_not_found_error.js'
+import { PrismaPajamasRepository } from '@/repositories/prisma/prisma_pajama_repository.js'
+import { DeletePajamaUseCase } from '@/use-case/pajama/delete_pajama_use_case.js'
+import { ResourceNotFoundError } from '@/use-case/erros/resource_not_found_error.js'
 
 export async function deletePajama(request: FastifyRequest, reply: FastifyReply) {
   const paramsSchema = z.object({ id: z.string().uuid() })

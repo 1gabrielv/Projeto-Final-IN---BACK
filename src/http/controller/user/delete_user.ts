@@ -1,8 +1,8 @@
 import { z } from 'zod'
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaUserRepository } from '../../../repositories/prisma/prisma_user_repository.js'
-import { DeleteUserUseCase } from '../../../use-case/user/delete_user_use_case.js'
-import { ResourceNotFoundError } from '../../../use-case/erros/resource_not_found_error.js'
+import { PrismaUserRepository } from '@/repositories/prisma/prisma_user_repository.js'
+import { DeleteUserUseCase } from '@/use-case/user/delete_user_use_case.js'
+import { ResourceNotFoundError } from '@/use-case/erros/resource_not_found_error.js'
 
 export async function deleteUser(request: FastifyRequest, reply: FastifyReply) {
   const paramsSchema = z.object({

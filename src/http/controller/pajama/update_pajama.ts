@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaPajamasRepository } from '../../../repositories/prisma/prisma_pajama_repository.js'
-import { UpdatePajamaUseCase } from '../../../use-case/pajama/update_pajama_use_case.js'
+import { PrismaPajamasRepository } from '@/repositories/prisma/prisma_pajama_repository.js'
+import { UpdatePajamaUseCase } from '@/use-case/pajama/update_pajama_use_case.js'
 
 export async function updatePajama(request: FastifyRequest, reply: FastifyReply) {
   const paramsSchema = z.object({ id: z.string().uuid() })

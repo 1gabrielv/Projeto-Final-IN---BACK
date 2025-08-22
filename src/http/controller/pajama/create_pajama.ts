@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaPajamasRepository } from '../../../repositories/prisma/prisma_pajama_repository.js'
-import { CreatePajamaUseCase } from '../../../use-case/pajama/create_pajama_use_case.js'
+import { PrismaPajamasRepository } from '@/repositories/prisma/prisma_pajama_repository.js'
+import { CreatePajamaUseCase } from '@/use-case/pajama/create_pajama_use_case.js'
 
 export async function createPajama(request: FastifyRequest, reply: FastifyReply) {
   const bodySchema = z.object({

@@ -1,8 +1,8 @@
 import { z } from 'zod'
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaPajamaSizeRepository } from '../../../repositories/prisma/prisma_pajama_size_repository.js'
-import { UpdateStockUseCase } from '../../../use-case/pajama/update_stock_use_case.js'
-import { ResourceNotFoundError } from '../../../use-case/erros/resource_not_found_error.js'
+import { PrismaPajamaSizeRepository } from '@/repositories/prisma/prisma_pajama_size_repository.js'
+import { UpdateStockUseCase } from '@/use-case/pajama/update_stock_use_case.js'
+import { ResourceNotFoundError } from '@/use-case/erros/resource_not_found_error.js'
 
 export async function updateStock(request: FastifyRequest, reply: FastifyReply) {
     const paramsSchema = z.object({ id: z.string().uuid() })

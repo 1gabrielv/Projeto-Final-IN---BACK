@@ -1,9 +1,9 @@
 import { z } from 'zod'
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaUserRepository } from '../../../repositories/prisma/prisma_user_repository.js'
-import { UpdateUserUseCase } from '../../../use-case/user/update_user_use_case.js'
-import { ResourceNotFoundError } from '../../../use-case/erros/resource_not_found_error.js'
-import { UserAlreadyExistsError } from '../../../use-case/erros/user_already_exists_error.js'
+import { PrismaUserRepository } from '@/repositories/prisma/prisma_user_repository.js'
+import { UpdateUserUseCase } from '@/use-case/user/update_user_use_case.js'
+import { ResourceNotFoundError } from '@/use-case/erros/resource_not_found_error.js'
+import { UserAlreadyExistsError } from '@/use-case/erros/user_already_exists_error.js'
 
 export async function updateUser(request: FastifyRequest, reply: FastifyReply) {
   const paramsSchema = z.object({

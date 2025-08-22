@@ -13,7 +13,7 @@ export class PrismaPajamasRepository implements PajamasRepository {
   async findAll(): Promise<Pajama[]> {
     return prisma.pajama.findMany({
       include: {
-        sizes: true, // Inclui os tamanhos na listagem
+        sizes: true,
       },
     })
   }
@@ -22,7 +22,7 @@ export class PrismaPajamasRepository implements PajamasRepository {
     return prisma.pajama.findUnique({
       where: { id },
       include: {
-        sizes: true, // Inclui os tamanhos na busca por ID
+        sizes: true, 
       },
     })
   }

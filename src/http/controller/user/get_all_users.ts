@@ -1,6 +1,6 @@
 import type { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaUserRepository } from '../../../repositories/prisma/prisma_user_repository.js'
-import { GetAllUsersUseCase } from '../../../use-case/user/get_all_users_use_case.js'
+import { PrismaUserRepository } from '@/repositories/prisma/prisma_user_repository.js'
+import { GetAllUsersUseCase } from '@/use-case/user/get_all_users_use_case.js'
 
 export async function getAllUsers(request: FastifyRequest, reply: FastifyReply) {
   try {
@@ -9,7 +9,6 @@ export async function getAllUsers(request: FastifyRequest, reply: FastifyReply) 
     
     const users = await getAllUsersUseCase.execute()
 
-    // Remover senhas da resposta
     const usersWithoutPassword = users.map(user => {
       const { password: _, ...userWithoutPassword } = user
       return userWithoutPassword
