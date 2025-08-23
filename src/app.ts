@@ -10,7 +10,12 @@ import jwt from '@fastify/jwt'
 
 export const app = fastify()
 
-app.register(fastifyCors, { origin: true })
+app.register(fastifyCors, {
+  origin: true,
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+  credentials: true
+})
 
 app.register(jwt, { secret: process.env.JWT_SECRET! })
 
